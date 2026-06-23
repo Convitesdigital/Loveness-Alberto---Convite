@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite de Casamento Exclusivo - Loveness & Alberto</title>
+    <!-- Tailwind CSS para estilização e responsividade -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #faf8f5; }
+        .font-serif-title { font-family: 'Cinzel', serif; }
+        .font-cursive { font-family: 'Playfair Display', serif; }
+        
+        /* Paleta de Cores de Bronze / Ouro Velho Metálico */
+        .text-bronze { color: #c5a059; }
+        .border-bronze { border-color: #c5a059; }
+        .bg-bronze-gradient { background: linear-gradient(135deg, #b8934b 0%, #dcae5f 50%, #b8934b 100%); }
+        .bg-bronze-button { background-color: #c5a059; }
+        
+        /* Efeito de Vidro Fosco (Glassmorphism) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .glass-capa {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Classes personalizadas para o Hover de Bronze nos botões de link/localização */
+        .btn-location-bronze {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #2c2c2c;
+            border: 1px solid #c5a059;
+            transition: all 0.5s ease;
+        }
+        .btn-location-bronze:hover {
+            background: linear-gradient(135deg, #b8934b 0%, #dcae5f 50%, #b8934b 100%);
+            color: #ffffff;
+            border-color: transparent;
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(184, 147, 75, 0.3);
+        }
+
+        /* Animações */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 1.2s ease-out forwards; }
+
+        /* Nova Animação Elegante de Flutuação (Float) para chamar atenção */
+        @keyframes elegantFloat {
+            0% { transform: translateY(0px); box-shadow: 0 4px 6px -1px rgba(197, 160, 89, 0.1); }
+            50% { transform: translateY(-6px); box-shadow: 0 12px 20px -3px rgba(184, 147, 75, 0.25); }
+            100% { transform: translateY(0px); box-shadow: 0 4px 6px -1px rgba(197, 160, 89, 0.1); }
+        }
+        .animate-elegant-float {
+            animation: elegantFloat 3.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="text-[#2c2c2c] overflow-x-hidden antialiased">
+
+    <!-- ÁUDIO DE FUNDO -->
+    <audio id="bgMusic" loop>
+        <source src="New Project (mp3cut.net).mp3"audio/mpeg">
+    </audio>
+
+    <!-- TELA 1: CAPA FRONTAL PREMIUM -->
+    <div id="capa" class="fixed inset-0 z-50 flex flex-col justify-between items-center p-6 text-center transition-all duration-1000 bg-cover bg-center" style="background-image: url('WhatsApp\ Image\ 2026-06-21\ at\ 16.02.19.jpeg');">
+        <div class="absolute inset-0 glass-capa z-0"></div>
+
+        <div class="mt-8 z-10 animate-fade-in">
+            <p class="font-serif-title tracking-[0.3em] text-xs md:text-sm text-amber-100/90">CONVITE DE CASAMENTO</p>
+            <div class="w-12 h-[1px] bg-amber-200/50 mx-auto mt-2"></div>
+        </div>
+        
+        <!-- Foto dos Noivos em Destaque na Capa -->
+        <div class="z-10 my-auto flex flex-col items-center animate-fade-in" style="animation-delay: 0.3s;">
+            <div class="w-48 h-48 md:w-56 md:h-56 rounded-full border-2 border-bronze p-1.5 shadow-2xl bg-black/20 mb-6 overflow-hidden">
+                <img src="PERFILLL.jpeg" alt="Noivos" class="w-full h-full object-cover rounded-full transition-transform duration-700 hover:scale-110">
+            </div>
+            
+            <h1 class="font-cursive italic text-5xl md:text-7xl text-white drop-shadow-md">
+                José Alberto <span class="text-bronze block my-2 font-normal not-italic text-3xl font-serif-title">&</span> Laura Isabel
+            </h1>
+            <p class="font-serif-title tracking-[0.2em] text-sm md:text-base text-gray-200 mt-4">27 DE SETEMBRO DE 2026</p>
+        </div>
+
+        <div class="mb-12 w-full max-w-xs z-10 animate-fade-in" style="animation-delay: 0.6s;">
+            <button onclick="iniciarConvite()" class="w-full border-2 border-bronze text-white hover:text-neutral-900 hover:bg-bronze-gradient font-serif-title tracking-[0.2em] text-xs py-4 px-8 rounded-full transition-all duration-500 transform hover:scale-105 active:scale-95 shadow-lg bg-black/40">
+                ABRIR CONVITE
+            </button>
+        </div>
+    </div>
+
+
+    <!-- TELA 2: CONTEÚDO PRINCIPAL -->
+    <div id="wrapper-conteudo" class="hidden min-h-screen bg-cover bg-fixed bg-center py-16 px-4" style="background-image: linear-gradient(rgba(250,248,245,0.95), rgba(250,248,245,0.95)), url('background-casamento.jpg');">
+        
+        <main id="conteudo" class="max-w-2xl mx-auto text-center glass-card rounded-2xl p-8 md:p-14 shadow-2xl opacity-0 transition-opacity duration-1000">
+            
+            <!-- Detalhe Superior Bronze -->
+            <div class="mb-6 flex justify-center text-bronze">
+                <svg class="w-8 h-8 opacity-70" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg>
+            </div>
+
+            <!-- Versículo Inicial -->
+            <section class="mb-10 max-w-md mx-auto">
+                <p class="font-cursive italic text-gray-600 text-sm md:text-base leading-relaxed">
+                    "Por isso, deixará o homem o seu pai e a sua mãe e se unirá à sua mulher, e serão ambos uma carne."
+                </p>
+                <p class="font-serif-title text-[10px] tracking-[0.2em] text-bronze mt-3">GÊNESIS 2:24</p>
+            </section>
+
+            <div class="w-16 h-[1px] bg-gold/30 mx-auto my-8"></div>
+
+            <!-- Pais dos Noivos -->
+            <section class="mb-10 space-y-6 text-xs md:text-sm tracking-wide text-gray-700">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4">
+                    <div>
+                        <p class="font-serif-title text-[11px] tracking-widest text-bronze uppercase mb-2">Pais da Noiva</p>
+                        <p class="font-semibold">Américo Levi Vilanculos</p>
+                        <p class="font-semibold">Anita José Vilanculos</p>
+                    </div>
+                    <div>
+                        <p class="font-serif-title text-[11px] tracking-widest text-bronze uppercase mb-2">Pais do Noivo</p>
+                        <p class="font-semibold">Hermenegildo Francisco Boane <span class="text-[10px] text-gray-400 block sm:inline">(Em Memória)</span></p>
+                        <p class="font-semibold">Alice David Uate</p>
+                    </div>
+                </div>
+                <p class="font-serif-title text-[11px] tracking-[0.25em] text-gray-400 uppercase pt-6">Convidam para o seu casamento</p>
+            </section>
+
+            <!-- Nomes Principais -->
+            <section class="mb-10">
+                <h2 class="font-cursive text-5xl md:text-6xl text-bronze drop-shadow-sm">Loveness & Alberto</h2>
+                <div class="max-w-xs mx-auto border-y border-gold/30 my-6 py-3">
+                    <p class="font-serif-title tracking-[0.2em] text-sm md:text-base text-gray-700">31 DE OUTUBRO DE 2026</p>
+                </div>
+            </section>
+
+            <!-- Cronograma Interativo -->
+            <section class="space-y-4 my-8 max-w-md mx-auto">
+                <a href="https://maps.app.goo.gl/MXLdSmfvdjzRtZtt9?g_st=aw" target="_blank" class="block w-full btn-location-bronze py-4 px-6 rounded-lg text-xs tracking-widest uppercase font-semibold shadow-sm">
+                    1. Local Religioso (09:30h)
+                </a>
+                <a href="https://maps.app.goo.gl/MXLdSmfvdjzRtZtt9?g_st=aw" target="_blank" class="block w-full btn-location-bronze py-4 px-6 rounded-lg text-xs tracking-widest uppercase font-semibold shadow-sm">
+                    2. Local do Registo Civil (13:30h)
+                </a>
+                <a href="https://maps.app.goo.gl/rNYWDgQ7rQXJD8zP6?g_st=iw" target="_blank" class="block w-full btn-location-bronze py-4 px-6 rounded-lg text-xs tracking-widest uppercase font-semibold shadow-sm">
+                    3. Local de Copo de Água
+                </a>
+                <button onclick="abrirModalConfirmacao()" class="block w-full bg-bronze-button text-white hover:bg-bronze-gradient hover:text-neutral-900 font-serif-title font-bold py-4 px-6 rounded-lg text-xs tracking-widest uppercase transition-all duration-500 transform hover:scale-[1.03] shadow-md hover:shadow-xl border border-amber-600/20">
+                    4. Confirmação de Presença
+                </button>
+            </section>
+
+            <div class="w-16 h-[1px] bg-gold/30 mx-auto my-10"></div>
+
+            <!-- Área de Presentes -->
+            <section class="bg-white/60 border border-gold/10 p-6 md:p-8 rounded-xl shadow-inner">
+                <p class="font-cursive italic text-gray-500 text-sm mb-5">"A sua presença é o nosso maior presente."</p>
+                
+                <!-- Botão de presentes com efeito flutuante chamativo e hover bronze/ouro -->
+                <button onclick="abrirModalPresentes()" class="animate-elegant-float inline-flex items-center gap-2 btn-location-bronze px-8 py-3.5 rounded-full text-xs tracking-[0.15em] uppercase font-bold">
+                    🎁 Presentes Materiais
+                </button>
+
+                <p class="font-serif-title text-[10px] tracking-[0.2em] text-gray-400 uppercase mt-10 mb-4">Para Presentes em Dinheiro:</p>
+                
+                <!-- Contas Bancárias -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left text-xs mb-6">
+                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm hover:border-bronze/50 transition-all duration-300">
+                        <p class="font-serif-title font-bold text-bronze text-sm mb-2">BIM</p>
+                        <p class="text-gray-500 mb-0.5">Conta: <span class="font-mono text-gray-800 font-medium">328899259</span></p>
+                        <p class="text-gray-500">NIB: <span class="font-mono text-gray-800 text-[11px]">000100000032889925957</span></p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm hover:border-bronze/50 transition-all duration-300">
+                        <p class="font-serif-title font-bold text-bronze text-sm mb-2">BCI</p>
+                        <p class="text-gray-500 mb-0.5">Conta: <span class="font-mono text-gray-800 font-medium">14384227110001</span></p>
+                        <p class="text-gray-500">NIB: <span class="font-mono text-gray-800 text-[11px]">000800004384227110195</span></p>
+                    </div>
+                </div>
+
+                <!-- Detalhes do Titular -->
+                <div class="text-xs md:text-sm text-gray-600 space-y-2 border-t border-gray-100 pt-5 text-center">
+                    <p class="tracking-wide"><strong>Titular:</strong> Alberto Hermenegildo Boane</p>
+                    <div class="inline-flex flex-wrap justify-center gap-x-6 gap-y-1 text-gray-500 font-medium">
+                        <p>M-Pesa: <span class="font-mono text-gray-800">840424912</span></p>
+                        <p>E-Mola: <span class="font-mono text-gray-800">879622608</span></p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- MODAL 1: FORMULÁRIO DE CONFIRMAÇÃO DE PRESENÇA -->
+    <div id="modalConfirmacao" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-all">
+        <div class="bg-white w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl relative border-t-4 border-bronze">
+            <button onclick="fecharModalConfirmacao()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">×</button>
+            
+            <h3 class="font-serif-title text-gray-800 tracking-widest text-base text-center mb-2">CONFIRMAR PRESENÇA</h3>
+            <p class="text-gray-500 text-xs text-center mb-6">Por favor, introduza os seus dados para validar na nossa lista oficial.</p>
+            
+            <form onsubmit="enviarWhatsApp(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-500 tracking-wider mb-1">Nome Completo:</label>
+                    <input type="text" id="nomeConvidado" required placeholder="Ex: Maria Silva" class="w-full border border-gray-300 p-3 rounded-lg text-sm focus:outline-none focus:border-bronze bg-gray-50">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-500 tracking-wider mb-1">Contacto / Telemóvel:</label>
+                    <input type="tel" id="contactoConvidado" required placeholder="Ex: +258 84 123 4567" class="w-full border border-gray-300 p-3 rounded-lg text-sm focus:outline-none focus:border-bronze bg-gray-50">
+                </div>
+                
+                <button type="submit" class="w-full bg-bronze-button hover:bg-bronze-gradient text-white hover:text-neutral-900 font-serif-title font-bold py-3.5 rounded-lg text-xs tracking-widest uppercase transition-all duration-300 mt-2 shadow">
+                    CONFIRMAR VIA WHATSAPP
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: PRESENTES MATERIAIS -->
+    <div id="modalPresentes" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-all">
+        <div class="bg-white w-full max-w-sm rounded-2xl p-8 shadow-2xl relative text-center border-b-4 border-bronze">
+            <button onclick="fecharModalPresentes()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">×</button>
+            
+            <h3 class="font-serif-title text-gray-800 tracking-widest text-base mb-3">PRESENTES MATERIAIS</h3>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">Disponibilizamos uma lista especial de presentes na loja <br><strong class="text-gray-800">Casa das Loiças</strong>.</p>
+            
+            <div class="space-y-3">
+                <a href="tel:+258879622608" class="flex items-center justify-center gap-2 w-full border border-gray-300 hover:bg-bronze-gradient hover:text-neutral-900 py-3.5 rounded-full text-xs tracking-wider uppercase font-semibold transition-all duration-300">
+                    📞 Ligar:  +258 87 962 2608
+                </a>
+                <a href="https://maps.app.goo.gl/nha3vcf7UWf9urgk8?g_st=aw" target="_blank" class="flex items-center justify-center gap-2 w-full border border-gray-300 hover:bg-bronze-gradient hover:text-neutral-900 py-3.5 rounded-full text-xs tracking-wider uppercase font-semibold transition-all duration-300">
+                    📍 Ver no mapa
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE INTERATIVIDADE -->
+    <script>
+        function iniciarConvite() {
+            const capa = document.getElementById('capa');
+            const wrapper = document.getElementById('wrapper-conteudo');
+            const conteudo = document.getElementById('conteudo');
+            
+            capa.style.opacity = '0';
+            setTimeout(() => {
+                capa.classList.add('hidden');
+                wrapper.classList.remove('hidden');
+                setTimeout(() => { conteudo.style.opacity = '1'; }, 50);
+            }, 1000);
+
+            const musica = document.getElementById('bgMusic');
+            musica.play().catch(error => { console.log("Áudio em segundo plano pronto."); });
+        }
+
+        /* Funções dos Modais */
+        function abrirModalConfirmacao() { document.getElementById('modalConfirmacao').classList.remove('hidden'); }
+        function fecharModalConfirmacao() { document.getElementById('modalConfirmacao').classList.add('hidden'); }
+        function abrirModalPresentes() { document.getElementById('modalPresentes').classList.remove('hidden'); }
+        function fecharModalPresentes() { document.getElementById('modalPresentes').classList.add('hidden'); }
+
+        /* Geração da Mensagem Estruturada */
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            
+            const nome = document.getElementById('nomeConvidado').value;
+            const contacto = document.getElementById('contactoConvidado').value;
+            
+            const mensagem = 
+`✨ *CONFIRMAÇÃO DE PRESENÇA* ✨
+———————————————
+Olá! É com imensa alegria que confirmo a minha presença no vosso casamento.
+
+📝 *DADOS DO CONVIDADO:*
+• *Nome:* ${nome}
+• *Contacto:* ${contacto}
+
+📅 *Evento:* Casamento de Alberto & Loveness
+🗓️ *Data:* 31 de Outubro de 2026
+
+_Obrigado pelo convite, estamos ansiosos por este dia tão especial!_`;
+
+            const mensagemCodificada = encodeURIComponent(mensagem);
+            const numeroWhatsApp = "258845868473"; 
+            
+            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`, '_blank');
+            fecharModalConfirmacao();
+        }
+    </script>
+</body>
+</html>
