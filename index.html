@@ -49,7 +49,7 @@
     <canvas id="particles-canvas"></canvas>
 
     <!-- Player de Áudio Fixo -->
-    <div class="fixed bottom-4 right-4 z-50 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg border border-amber-800/20 flex items-center gap-2 content-z">
+    <div id="player-flutuante" class="hidden fixed bottom-4 right-4 z-50 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg border border-amber-800/20 flex items-center gap-2 content-z">
         <button id="btn-music" class="w-10 h-10 rounded-full bg-[#1e2d24] text-amber-400 flex items-center justify-center hover:bg-[#2a3f33] transition-colors focus:outline-none">
             <svg id="icon-play" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             <svg id="icon-pause" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
@@ -59,14 +59,14 @@
     </div>
 
     <!-- SEÇÃO 1: Capa -->
-    <section class="relative min-h-screen flex flex-col items-center justify-center bg-[#1e2d24] text-white px-4 text-center py-12 overflow-hidden content-z">
+    <section id="capa-section" class="relative min-h-screen flex flex-col items-center justify-center bg-[#1e2d24] text-white px-4 text-center py-12 overflow-hidden content-z">
         <div class="absolute inset-0 opacity-15 bg-[url('https://images.unsplash.com/photo-1519741497674-611481863552')] bg-cover bg-center filter blur-sm transition-transform duration-1000 scale-105"></div>
         
         <div class="relative z-10 max-w-md w-full flex flex-col items-center space-y-6">
             <span class="serif-title tracking-[0.3em] text-xs uppercase text-amber-400/90 animate-pulse">Convite de Casamento</span>
             
             <!-- Foto dos Noivos -->
-            <div class="w-60 h-60 rounded-full border-4 border-amber-400/60 p-1 overflow-hidden shadow-2xl bg-neutral-700 floating-element transition-all duration-500 hover:scale-105">
+            <div class="w-60 h-60 rounded-full border-4 border-amber-400/60 p-1 overflow-hidden shadow-2xl bg-neutral-700 floating-element">
                 <img src="PERFILLL.jpeg" alt="Loveness e Alberto" class="w-full h-full object-cover rounded-full">
             </div>
 
@@ -76,21 +76,31 @@
             
             <p class="tracking-widest text-sm uppercase text-neutral-300 pt-2">31 de Outubro de 2026</p>
             
-            <a href="#conteudo" id="btn-abrir" class="serif-title tracking-widest text-sm uppercase border border-amber-400/50 px-8 py-3 rounded-full hover:bg-amber-400 hover:text-[#1e2d24] transition-all duration-300 shadow-lg shadow-black/30 mt-6">
+            <button id="btn-abrir" class="serif-title tracking-widest text-sm uppercase border border-amber-400/50 px-8 py-3 rounded-full hover:bg-amber-400 hover:text-[#1e2d24] transition-all duration-300 shadow-lg shadow-black/30 mt-6 cursor-pointer">
                 Abrir Convite
-            </a>
+            </button>
         </div>
     </section>
 
-    <!-- CONTEÚDO DO CONVITE -->
-    <div id="conteudo" class="max-w-xl mx-auto px-4 py-16 text-center space-y-16 content-z">
+    <!-- CONTEÚDO DO CONVITE (Acessível apenas após clicar em Abrir) -->
+    <div id="conteudo" class="hidden max-w-xl mx-auto px-4 py-16 text-center space-y-16 content-z">
         
-        <!-- Versículo Bíblico -->
+        <!-- 1. Versículo Bíblico -->
         <div class="space-y-4 px-6">
             <p class="serif-title text-xl italic text-neutral-600 leading-relaxed">
-                "Por isso, deixará o homem o seu pai e a sua mãe e se unirá à sua mulher, e serão ambos uma carne."
+                "Por isso deixará o homem o seu pai e sua mãe, e unir-se-á à sua mulher, e serão os dois uma só carne."
             </p>
             <span class="text-xs tracking-wider text-amber-700 font-medium block">— Gênesis 2:24</span>
+        </div>
+
+        <hr class="border-t border-neutral-200 w-1/4 mx-auto">
+
+        <!-- 2. Texto Sobre o Casal (Movido para após o Versículo) -->
+        <div class="space-y-4 px-4 max-w-md mx-auto">
+            <span class="text-[10px] font-semibold tracking-widest text-amber-700 uppercase block">Nossa História</span>
+            <h2 class="serif-title text-3xl text-[#1e2d24] italic">O Amor que nos Une</h2>
+            <p class="text-sm text-neutral-600 leading-relaxed font-light">
+                Com muito amor, convidamos a si e ao seu acompanhante para celebrar connosco este momento tão especial
         </div>
 
         <hr class="border-t border-neutral-200 w-1/4 mx-auto">
@@ -99,7 +109,7 @@
         <div class="space-y-12">
             <!-- Noiva e Pais -->
             <div class="space-y-4">
-                <div class="w-40 h-40 rounded-full border-2 border-amber-700/20 p-1 mx-auto overflow-hidden shadow-md transition-transform duration-300 hover:scale-105">
+                <div class="w-40 h-40 rounded-full border-2 border-amber-700/20 p-1 mx-auto overflow-hidden shadow-md">
                     <img src="89933.jpg" alt="Noiva Loveness" class="w-full h-full object-cover rounded-full">
                 </div>
                 <div class="space-y-2">
@@ -115,7 +125,7 @@
 
             <!-- Noivo e Pais -->
             <div class="space-y-4">
-                <div class="w-40 h-40 rounded-full border-2 border-amber-700/20 p-1 mx-auto overflow-hidden shadow-md transition-transform duration-300 hover:scale-105">
+                <div class="w-40 h-40 rounded-full border-2 border-amber-700/20 p-1 mx-auto overflow-hidden shadow-md">
                     <img src="BACK.jpeg" alt="Noivo Alberto" class="w-full h-full object-cover rounded-full">
                 </div>
                 <div class="space-y-2">
@@ -140,10 +150,8 @@
                     <span class="text-xs font-semibold tracking-widest text-amber-700 uppercase">Cerimónia Religiosa</span>
                     <p class="font-medium text-sm">Igreja Metodista Unida de Moçambique - CP Malanga</p>
                     <p class="text-xs text-neutral-500">Horário: 09:30</p>
-
-
-<a href="https://maps.app.goo.gl/MXLdSmfvdjzRtZtt9?g_st=aw" target="_blank" class="inline-flex items-center gap-2 text-xs bg-[#1e2d24] text-white px-5 py-2.5 rounded-full hover:bg-amber-700 transition-colors w-full justify-center font-medium mt-2">
-  Local Religioso no Mapa
+                    <a href="https://maps.app.goo.gl/MXLdSmfvdjzRtZtt9?g_st=aw" target="_blank" class="inline-flex items-center gap-2 text-xs bg-[#1e2d24] text-white px-5 py-2.5 rounded-full hover:bg-amber-700 transition-colors w-full justify-center font-medium mt-2">
+                        Local Religioso no Mapa
                     </a>
                 </div>
 
@@ -152,20 +160,16 @@
                     <span class="text-xs font-semibold tracking-widest text-amber-700 uppercase">Registo Civil</span>
                     <p class="font-medium text-sm">Quinta das Bungavílias - Mahotas</p>
                     <p class="text-xs text-neutral-500">Horário: 13:30</p>
-
-                 
                     <a href="https://maps.app.goo.gl/rNYWDgQ7rQXJD8zP6?g_st=iw" target="_blank" class="inline-flex items-center gap-2 text-xs bg-[#1e2d24] text-white px-5 py-2.5 rounded-full hover:bg-amber-700 transition-colors w-full justify-center font-medium mt-2">
-                     Local do Registo Civil
+                        Local do Registo Civil
                     </a>
-
-
                 </div>
 
                 <!-- Copo de Água -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 space-y-3">
                     <span class="text-xs font-semibold tracking-widest text-amber-700 uppercase">Recepção / Copo de Água</span>
                     <p class="font-medium text-sm">Quinta das Bungavílias - Mahotas</p>
-                    <a href="https://maps.app.goo.gl/rNYWDgQ7rQXJD8zP6?g_st=iw" class="inline-flex items-center gap-2 text-xs bg-[#1e2d24] text-white px-5 py-2.5 rounded-full hover:bg-amber-700 transition-colors w-full justify-center font-medium mt-2">
+                    <a href="https://maps.app.goo.gl/rNYWDgQ7rQXJD8zP6?g_st=iw" target="_blank" class="inline-flex items-center gap-2 text-xs bg-[#1e2d24] text-white px-5 py-2.5 rounded-full hover:bg-amber-700 transition-colors w-full justify-center font-medium mt-2">
                         Local do Copo de Água
                     </a>
                 </div>
@@ -191,11 +195,9 @@
                 <p class="text-xs uppercase font-semibold text-neutral-500 tracking-wider">Presentes Materiais</p>
                 <p class="text-sm text-neutral-700">Disponibilizamos uma lista especial de presentes na loja <strong class="text-[#1e2d24]">Casa das Loiças</strong>.</p>
                 <div class="flex gap-2 pt-1">
-     
-<a href="tel:+258879622608" class="flex-1 inline-flex items-center justify-center gap-2 text-xs border border-amber-700/30 text-amber-900 py-2 rounded-lg hover:bg-amber-50 font-medium text-center">
+                    <a href="tel:+25821303332" class="flex-1 inline-flex items-center justify-center gap-2 text-xs border border-amber-700/30 text-amber-900 py-2 rounded-lg hover:bg-amber-50 font-medium text-center">
                         📞 Ligar: +258 842162430
-</a>
-
+                    </a>
                     <a href="https://maps.app.goo.gl/nha3vcf7UWf9urgk8?g_st=aw" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 text-xs border border-amber-700/30 text-amber-900 py-2 rounded-lg hover:bg-amber-50 font-medium text-center">
                         📍 Ver no mapa
                     </a>
@@ -206,7 +208,7 @@
                 <p class="text-xs uppercase font-semibold text-neutral-500 tracking-wider">Presentes em Dinheiro</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                     <div class="p-3 bg-neutral-50 rounded-xl border border-neutral-200">
-                      <p class="font-bold text-[#1e2d24]">Millenium BIM</p>
+                        <p class="font-bold text-[#1e2d24]">Millenium BIM</p>
                         <p class="text-neutral-600">Conta: 328899259</p>
                         <p class="text-[10px] text-neutral-500 break-all">NIB: 000100000032889925957</p>
                     </div>
@@ -232,7 +234,7 @@
                 </div>
             </div>
             <a href="https://wa.me/258879622608" target="_blank" class="w-full inline-flex items-center justify-center gap-2 text-xs bg-emerald-600 text-white py-3 rounded-xl hover:bg-emerald-700 font-medium transition-colors">
-                Contatar Organização via WhatsApp 
+                Contatar Organização via WhatsApp
             </a>
         </div>
 
@@ -270,7 +272,7 @@
 
         <hr class="border-t border-neutral-200 w-1/4 mx-auto">
 
-        <!-- NOVA SEÇÃO: MAIS INFORMAÇÕES -->
+        <!-- MAIS INFORMAÇÕES -->
         <div class="bg-white rounded-3xl p-6 shadow-sm border border-neutral-100 text-center space-y-4">
             <span class="text-xs font-semibold tracking-widest text-amber-700 uppercase block">Dúvidas ou Informações</span>
             <h3 class="serif-title text-2xl text-[#1e2d24]">Mais Informações</h3>
@@ -294,6 +296,8 @@
         const btnAbrir = document.getElementById('btn-abrir');
         const iconPlay = document.getElementById('icon-play');
         const iconPause = document.getElementById('icon-pause');
+        const conteudo = document.getElementById('conteudo');
+        const playerFlutuante = document.getElementById('player-flutuante');
 
         function playAudio() {
             audio.play().then(() => {
@@ -308,8 +312,12 @@
             iconPause.classList.add('hidden');
         }
 
+        // Evento ao clicar em Abrir Convite
         btnAbrir.addEventListener('click', () => {
+            conteudo.classList.remove('hidden');
+            playerFlutuante.classList.remove('hidden');
             playAudio();
+            conteudo.scrollIntoView({ behavior: 'smooth' });
         });
 
         btnMusic.addEventListener('click', () => {
@@ -327,10 +335,10 @@
             const status = document.getElementById('rsvp-status').value;
             
             const texto = `Olá Loveness e Alberto!%0A%0A*Confirmação de Presença*%0A%0A*Nome:* ${name}%0A*Contacto:* ${phone}%0A*Presença:* ${status}`;
-            window.open(`https://wa.me/258845868473?text=${texto}`, '_blank');
+            window.open(`https://wa.me/258840424912?text=${texto}`, '_blank');
         });
 
-        // Partículas Douradas
+        // Partículas Background
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
